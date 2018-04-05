@@ -31,13 +31,78 @@ var = {
 }
 
 # "" '' both can be used to declare strings
-var = " " + "tomorrow"
+var = " " + "tomorrow".lower()
 var[2]
 var[-2]
 var[var.__len__()-1]
 var = str(9)
-# var = input()
+var.re
+# var = input("Enter a variable:")
 var = 7.74986824596
 round(var, 2)       # round 2 decimal points
+
+# Conditions Boolean expressions
+
+# if condition:
+#    doSomething
+# elif otherCondition:
+#    doSomething
+# else:
+#    goNuts
+
+# check if values are equal ==
+# check if both reference same location 'is'. Also, x is 1,'any-string' if x=1,'any-string' will return true
+# '', None, 0 return false
+# == != < > <= >= conditional-operators 'and' 'or' 'not'
+
+# from random import randint
+# from random import choice
+
+# for var in iterable/range(start, stop):
+#   doSomething
+# range(num) 0->num-1
+# range(num1, num2) num1->num2-1
+# range(n1, n2, n3) n3 denotes steps
+
+# while condition:
+#   doSomething
+# break
+
+
+# Lists
+var = ['tomatoes', 'american-hustle', 'airplanes']*6
+var.__len__()
+len(var)
+var.append(['toronto', 'tomorrow'])     # to add just this as an object to list
+var.extend([34, 35])    # to expand the list
+# var.sort()
+# var.insert(3, '235')
+# var.clear()
+# var.pop(2)
+# var.remove('value')     # remove the first occurance
+# var.count('value')      # count of occurances of the value
+# var.index('value')     # returns the index of value
+# var.reverse()
+# var = list(range(1, 10))
+# var[2]
+# var[-1]
+# var[3:]     # slices the list now starting at 3 index
+# var[3:6]    # slices upto the mentioned end but one
+# var[::]     # step index
+# var[3], var[5] = var[7], var[3]     # swapping values
+# var = [x*7 for x in var if x % 2 == 0]            # [operation for x in var] returns a new modified list
+#  here 'if' can be appended anywhere
+var = "Python rocks, Java shockzz!"
+print(''.join([v for v in var if v not in "aeiou"]))    # removing vowels from string
+
+# 45 in var                   # returns if it contains the object
+# "var-string".join(var)      # joins the list appending the string in between
+# var = range(20)
+
+var.__contains__()
+
+# print(type(var))
+
+
 print(var)
 
