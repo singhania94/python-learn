@@ -36,7 +36,6 @@ var[2]
 var[-2]
 var[var.__len__()-1]
 var = str(9)
-var.re
 # var = input("Enter a variable:")
 var = 7.74986824596
 round(var, 2)       # round 2 decimal points
@@ -93,15 +92,31 @@ var.extend([34, 35])    # to expand the list
 # var = [x*7 for x in var if x % 2 == 0]            # [operation for x in var] returns a new modified list
 #  here 'if' can be appended anywhere
 var = "Python rocks, Java shockzz!"
-print(''.join([v for v in var if v not in "aeiou"]))    # removing vowels from string
-
+# print(''.join([v for v in var if v not in "aeiou"]))    # removing vowels from string
+# [ x if x==0 else x-1 for x in list]       # if else occuring in the start for optional values
+var = [[1, 2, 3], [5, 6, 7], [10, 22]]  # nested list
+# [[print(i) for i in l] for l in var]
 # 45 in var                   # returns if it contains the object
 # "var-string".join(var)      # joins the list appending the string in between
 # var = range(20)
-
-var.__contains__()
-
+# var.__contains__('')
 # print(type(var))
+var = dict(name="kitty", age=56)
+var = {
+    "item": "gel-pen",
+    "quantity": 3,
+    "price": 56.98,
+    "is_eatable": False,
+    4: 78947389
+}
+var["item"]
+var.keys()
+var.values()
+var.items()
+
+# for key, value in var.items():
+
+
 
 
 print(var)
