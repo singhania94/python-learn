@@ -20,11 +20,11 @@ def estimate_pi(n=1000):
     return float(inside) * 4 / n
 
 
-print_me.__doc__    # return the thing in triple ""
+print_me.__doc__                            # return the thing in triple ""
 total = 0
 
 
-def f():
+def using_global_var():                    # using global variables in method requires special work
     global total
     total += 1
     return total
@@ -34,7 +34,7 @@ def add(a, b):
     return a + b
 
 
-def func(a, b, fu=add):
+def func_param_pass(a, b, fu=add):      # func name can also be passed as arguments
     return fu(a, b)
 
 
@@ -42,17 +42,31 @@ def outer():
     var = 'sac'
 
     def inner():
-        nonlocal var
+        nonlocal var        # required if you want to use an outside variable
         print(var)
 
     inner()
 
 
+def what_does_pass_do():         # does nothing
+    pass
+
+
+def star_args(*args):       # args is a tuple containing any arbitrary args passed
+    print(args)             # star_args(123, 'Meryl Streep', True)
+    pass                    # tu = (123, True, "Marry her");  star_args(*tu)
+
+
+def star_star_args(**kwargs):      # intakes all arguments as dictionary
+    print(kwargs)                   # star_star_args(dat='12th',married=True)
+    pass                            # di = {'name':'Aditya', 'surname':'Singahnia'};  star_star_args(**di)
+
 # Returning global variables in functions
-# var = estimate_pi(1000000)
-# print_me(s="aisehi")
 # We should have all the default params in the end as python assign values in order
 # parameters are variables in our function def
 # arguments are values with which we call our function
-# passing method names as params
-# using global variables in method requires special work
+# Ordering
+#   1. params
+#   2. *args
+#   3. params with default values
+#   4. **kwargs
