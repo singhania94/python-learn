@@ -11,4 +11,4 @@
 
 import function
 
-print(function.estimate_pi(1000000))
+print(function.estimate_pi(100000000))
