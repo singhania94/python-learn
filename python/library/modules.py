@@ -9,6 +9,6 @@
 # when you import, python also runs the file code, so you may want it to execute code
 # under condition id __name__ == '__main__'
 
-import function
+from python.syntax import function
 
-print(function.estimate_pi(100000000))
+print(function.estimate_pi(100000))
