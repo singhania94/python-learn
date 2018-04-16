@@ -68,6 +68,7 @@ var.get("key")      # return None if does'nt exist
 var.popitem()       # removes a item at random
 var.update(var2)    # updates, adds var with var2
 # {final_key: final_value for k,v in var.items()}   # iterates over keys by default
+# [card(k, v) for k in keys for v in values]    iterates over all combination of k, v
 # conditional logic can also be used using 'if'
 
 # var = dict(l2)    # if l2 is a list of pairs, can be done
