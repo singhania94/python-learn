@@ -94,5 +94,5 @@ class Cat(Animal):
 # Polymorphism
 # same method, different classes - method override
 # same method, different inputs - method overload - mul(a, b); mul(a, b, c);
-# Dunder methods - __repr__, __str__, __add__(self, other), __len__, __mul__
+# Dander methods - __repr__, __str__, __add__(self, other), __len__, __mul__
 # in dictionary, __missing__, __setitem__, __iter__

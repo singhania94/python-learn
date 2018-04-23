@@ -61,3 +61,5 @@ var = dict(                 # other way of doing it
 )
 
 print(var)
+print(list(zip(var, m)))
+print(list(zip(*var.keys())))
