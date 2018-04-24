@@ -44,5 +44,25 @@ def greet():
 # print(greet());
 
 
+def passing_args(val):
+    def inner_func(fn):
+        def wrapper(*args, **kwargs):
+            print(f'from a wrapper {val}')
+            print(fn(*args, **kwargs))
+            print('done')
+        return wrapper
+    return inner_func
+
+
+# What is actually happening, demo = passing_args('aisehi')(demo)
+@passing_args('aisehi')
+def demo():
+    return 'hello'
+
+
+demo()
+
+
+
 
 
