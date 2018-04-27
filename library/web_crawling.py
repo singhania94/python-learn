@@ -10,8 +10,7 @@ class Author:
         self.bio = bio
 
     def __repr__(self):
-        print(f'\nAuthor {self.author} was born on {self.birth} in {self.place}')
-        print(f'Bio - {self.bio}\n')
+        return f'\nAuthor {self.author} was born on {self.birth} in {self.place} \nBio - {self.bio}\n'
 
 
 class Quote:
@@ -21,19 +20,19 @@ class Quote:
         self.tags = tags
 
     def __repr__(self):
-        print(f'\nAuthor {self.author} says {self.quote}')
-        print(f'Assosiated tags - {self.tags}\n')
+        return f'\nAuthor {self.author} says {self.quote}\nAssosiated tags - {self.tags}\n'
 
 
 authors = set()
 quotes = set()
-url = 'http://quotes.toscrape.com'
+base_url = 'http://quotes.toscrape.com'
+page_url = ''
 crawl = True
 
 while crawl:
-    print(f'Sending request to {url}')
-    response = get(url)
-    print(f'\nRequest to {response.url} has been processed with code {response.status_code} with reason  - '
+    print(f'Sending request to {base_url + page_url}')
+    response = get(base_url + page_url)
+    print(f'Request to {response.url} has been processed with code {response.status_code} with reason  - '
           f'{response.reason}\n')
 
     if response.status_code == 200:
@@ -42,18 +41,23 @@ while crawl:
 
         for soup_quote in soup_quotes:
             text = soup_quote.find(class_='text').get_text()
-            author = soup_quote.find(class_='author').get_text()
-            author_ref = soup_quote.find(class_='author').get('href')
+            author_name = soup_quote.find(class_='author').get_text()
+            author_ref = soup_quote.find('a').get('href')
             soup_tags = soup_quote.select('.tag')
             tags = []
             for soup_tag in soup_tags:
                 tags.append(soup_tag.get_text())
-            quotes.add(Quote(text, author, tags))
+            q = Quote(text, author_name, tags)
+            print(f'Formed quote object {q}')
+            quotes.add(q)
 
-            print(f'Sending request to {url + author_ref}')
-            response = get(url + author_ref)
-            print(f'\nRequest to {response.url} has been processed with code {response.status_code} with reason  - '
+            print(f'Sending request to {base_url + author_ref}')
+            response = get(base_url + author_ref)
+            print(f'Request to {response.url} has been processed with code {response.status_code} with reason  - '
                   f'{response.reason}\n')
 
+            soup_author = BeautifulSoup(response.text, 'html.parser')
+            print(soup_author)
+        crawl = False
     else:
         break
