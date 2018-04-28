@@ -10,7 +10,7 @@ class Author:
         self.bio = bio
 
     def __repr__(self):
-        return f'\nAuthor {self.author} was born on {self.birth} in {self.place} \nBio - {self.bio}\n'
+        return f'\nAuthor {self.name} was born on {self.birth} in {self.place} \nBio - {self.bio}\n'
 
 
 class Quote:
@@ -80,3 +80,11 @@ while crawl:
               f'Received status - {response.status_code}.\n'
               f'Ending the adventure here.')
         crawl = False
+
+print('\n\n\nPrinting all the gathered enlightenment-')
+for q in quotes:
+    print(quotes)
+
+print('\n\nPrinting the divine authors-')
+for a in authors:
+    print(authors)
