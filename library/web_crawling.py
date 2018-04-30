@@ -1,3 +1,4 @@
+# scrapy makes the world easy by allowing to provide input and output file and a parse method.
 from requests import get
 from bs4 import BeautifulSoup
 
